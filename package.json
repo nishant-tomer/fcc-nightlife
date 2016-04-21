@@ -1,18 +1,18 @@
 {
-  "name": "voting-app",
+  "name": "nightlife-app",
   "version": "1.0.0",
   "description": "This app was created as a challenge in FreeCodeCamp backend curriculum",
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nishant-tomer/fcc-voting-app.git"
+    "url": "git+https://github.com/nishant-tomer/fcc-nightlife.git"
   },
   "author": "Nishant Tomer <nishantfun4@gmail.com>",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/nishant-tomer/fcc-voting-app/issues"
+    "url": "https://github.com/nishant-tomer/fcc-nightlife/issues"
   },
-  "homepage": "https://github.com/nishant-tomer/fcc-voting-app#readme",
+  "homepage": "https://github.com/nishant-tomer/fcc-nightlife#readme",
   "dependencies": {
     "async": "~0.2.8",
     "body-parser": "^1.15.0",

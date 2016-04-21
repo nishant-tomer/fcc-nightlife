@@ -117,7 +117,7 @@ module.exports.controller = function(app, passport) {
 }
 
 function validator(string){
-    var pattern = /[^a-zA-Z_?:&0-9-]+/
+    var pattern = /^[^a-zA-Z_?:&,\.'" 0-9-]+( [^a-zA-Z_?:&,\.'" 0-9-]+ )*$/
     var test = string.match(pattern)
     if (test == null ){ return true }
     return false
