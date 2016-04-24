@@ -235,7 +235,7 @@ $(document).ready(function(){
         
     
             if(data.ok == "ok"){
-                window.location.href = "https://fcc-voting-app-nishant-tomer-1.c9users.io"
+                window.location.href = "/"
                 
                 
             }

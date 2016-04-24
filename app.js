@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(helmet())
 app.use(session({
-    secret: 'fcc-voting-app-secret',
+    secret: 'fcc-nightlife-app-secret',
     resave: false,
     saveUninitialized: true
 }));
