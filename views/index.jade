@@ -1,42 +1,67 @@
-if user === undefined
-    include header.jade
-    div.jumbotron
+doctype html
+html
+    head
+        include header.jade
+    body(style='font-family:Fauna One; background: grey url("/img/carpet.png") repeat;')
+    if user != undefined
+        div.jumbotron#userPlacesContainer(style= "position:fixed; width:100%; z-index:1000; top:-2000px; transition:all .1s linear;" )
+            div.container.text-center
+                div.row#userPlaces(style= "margin-top:50px;  overflow-y:auto; height:500px;")
+        div.navbar.navbar-default.navbar-fixed-top(style = "background:none !important; border:none !important;")
+            div#myPlaces
+                button.btn.btn-default(style = "display:block; margin:10px; ") My places 
+                    span.caret
+            div
+                a.btn(href="/logout")
+                    button.btn.btn-default Log Out
+        div.jumbotron(style = "background:none; color:white; ")
+            div.container.text-center
+                div.alert.alert-success#alert(role="alert" style="width:70%; display:none; position:fixed; top:300px; margin:auto;") Place added to My Places
+                div.row(style= "margin-top:50px;")
+                    div.col-xs-1
+                    div.col-xs-8
+                        form
+                            input.form-control(value="#{user.lastSearch}", style = "background:none; color:white; height:36px !important; font-size:25px !important;", type="text")
+                    div.col-xs-2
+                        button#search.btn.btn-default(style="width:100%; background:none; font-size:15px; color:white;") <strong>Go</strong>
+                        img(src = "/img/google.png",style="margin-top:5px;")
+                    div.col-xs-1
         div.container.text-center
-            blockquote
-                h2 Hello, There!
-                h3 This is an Electronic Voting Machine. Not the usual one. 
-                p.lead(style='font-family:Droid Serif;') You can do <i class="fa fa-hand-peace-o"></i> things here.
-            div.row
-                div.col-md-1
-                div.col-md-4
-                    div.panel
-                        div.panel-heading.bg-primary.text-center
-                            div.panel-title(style='font-family:Droid Serif;') <strong>Look.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vote.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Share.</strong>
-                        div.panel-body.text-justify(style='font-family:Open Sans;')
-                            p 1.<strong>Look</strong> at any of the Polls below to check detailed stats.
-                            p 2.<strong>Vote</strong> for your favourite option. Pick any Poll.
-                            p 3.<strong>Share</strong> Polls at your favourite social platform.
-    
-                
-                div.col-md-2
-                div.col-md-4
-                    div.panel
-                        div.panel-heading.bg-primary.text-center
-                            div.panel-title(style='font-family:Droid Serif;') <strong>Create.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edit.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invite.</strong>
-                        div.panel-body.text-justify(style='font-family:Open Sans;')
-                            p 1.<strong>Create</strong> a Poll after signing in using your Google account.
-                            p 2.<strong>Add</strong> Poll options on any Poll, after signing in. 
-                            p 3.<strong>Invite</strong> your friends to vote by sharing the Poll.
-    
-                div.col-md-1
-else 
-    include ./users/profileHeader.jade                
-            
-div.container.text-center(style="margin-top:80px;")
-    div.row#polls
-    
-    include footer.jade
-   
-include ./pollShowModal.jade
-    
+            div.row#bars(style="color:white; font-size:20px;")     
         
+        
+    
+    else 
+        div.navbar.navbar-default.navbar-fixed-top(style = "background:none !important; border:none !important;")
+             a.btn(href="/auth/google/new/new")
+                button.btn.btn-default(style = "display:block; margin:10px; ") Log In
+        div#instructions(style= "position:relative; top:0px; transition:all .5s ease-out" )
+            div.jumbotron(style = "background:none; color:white; ")
+                    div.container.text-center
+                        div.row
+                            div.visible-xs-12.hidden-lg(style="margin-top:30% !important" )  &nbsp;
+                            h2(style="font-size: 4vw; !important") Plans tonight?<br/><i class="fa fa-glass" aria-hidden="true" style="font-size: 3.7vw; !important"></i><i class="fa fa-car" aria-hidden="true" style="margin:0 25px 0 20px;"></i><i class="fa fa-map-marker" aria-hidden="true"></i>
+                        div.row 
+                            div.visible-xs-12.hidden-lg(style="margin-top:20%" )
+                            h3 See which places are hoppin' tonight and RSVP ahead of time! 
+                        div.row 
+                            div.visible-xs-12(style="margin-top:10%" )
+                            p.lead(style='font-family:Droid Serif;') Remember to take a cab and drink responsibly if at all.
+                            div.alert.alert-success#alert(role="alert" style="width:70%; display:none; position:fixed; top:300px;  margin:auto;") Place added to My Places
+                            div.row(style= "margin-top:50px;")
+                                div.col-xs-1
+                                div.col-xs-8
+                                    form
+                                        input.form-control(style = "background:none; color:white; height:36px !important; font-size:25px !important;", type="text", placeholder="Enter Your City Name.")
+                                div.col-xs-2
+                                    button#search.btn.btn-default(style="width:100%; background:none; font-size:15px; color:white;") <strong>Go</strong>
+                                    img(src = "/img/google.png",style="margin-top:5px;")
+                                div.col-xs-1
+            div.container.text-center
+                div.row#bars(style="color:white; font-size:20px;")
+        
+    include footer.jade
+
+
+
+

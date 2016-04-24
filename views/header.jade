@@ -1,25 +1,31 @@
-doctype html
-html
-    head
-        title Voting app
-        include ./cdn.jade
-    body(style='font-family:Fauna One; ')
-    .navbar.navbar-default.navbar-fixed-top(role='navigation',style="margin-right: 0 !important;")
-        .container
-            .navbar-header
-                button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
-                    span.sr-only Toggle navigation
-                    span.icon-bar
-                    span.icon-bar
-                    span.icon-bar
+title Where Tonight ?
+style.
+    input::-webkit-input-placeholder {
+        color: white !important;
+        }
+         
+        input:-moz-placeholder { 
+        color: white !important;
 
-                a.btn.btn-block(href="#") 
-                  button.btn.btn-success
-                      span  FCC | VOTING APP
-                      
-            .navbar-collapse.collapse.navbar-right(style="margin-top:5px;")   
-                a.btn.btn-block(href="/auth/google") 
-                    button.btn.btn-block.btn.btn-primary
-                        span.fa.fa-google  | Sign in with Google
+        }
+         
+        input::-moz-placeholder {
+        color: white !important;
+
+        }
+         
+        input:-ms-input-placeholder {  
+        color: white !important;
+
+        }
+
+    
+    
+if user != undefined    
+    script.
+        var user = '#{user.bars}'
+else 
+    script.
+        var user = null
         
             

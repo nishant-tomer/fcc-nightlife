@@ -6,12 +6,12 @@ var mongoose = require('mongoose')
                         		displayName: String,
                         		firstName: String,
                                 lastName: String,
-                                email: String,
                                 image: String,
-                                polls:  [{ type: Schema.Types.ObjectId, ref:'Poll' }],
+                                lastSearch: String,
+                                bars:  [],
                             })
                     );
 
-var User = mongoose.model('user', userSchema)
+var User = mongoose.model('User', userSchema)
 
 module.exports = User

@@ -38,7 +38,22 @@ module.exports.controller = function(app, passport) {
                     }
 
                     if (user) {
-                        return done(null, user);
+                        if(  request.query.state.split("&&&")[1] != "new" ){
+                            user.lastSearch = request.query.state.split("&&&")[1]
+                            user.bars.addToSet(request.query.state.split("&&&")[0])
+                            user.save(function(err) {
+                                if (err) {
+                                    throw err;
+                                }
+    
+                                return done(null, user);
+                            }); 
+                        }
+                        
+                        else{
+                            return done(null, user);
+                            
+                        } 
                     } else {
                         var newUser = new User();
 
@@ -46,8 +61,9 @@ module.exports.controller = function(app, passport) {
                         newUser.firstName = profile.name.givenName;
                         newUser.lastName = profile.name.familyName;
                         newUser.displayName = profile.displayName;
-                        newUser.email = profile.email;
                         newUser.image = profile._json.image.url;
+                        newUser.lastSearch = request.query.state.split("&&&")[1]
+                        newUser.bars.addToSet(request.query.state.split("&&&")[0])
 
                         newUser.save(function(err) {
                             if (err) {
